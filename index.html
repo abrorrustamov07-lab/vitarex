@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vitarex — премиальные фильтры для очистки воды</title>
+<meta name="description" content="Vitarex — премиальные фильтры для очистки воды в Узбекистане. Подбор модели, доставка, установка и сервисное обслуживание для дома и бизнеса.">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#05070b">
+<link rel="canonical" href="https://vitarex.uz/"><!-- TODO: заменить на реальный домен после покупки -->
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Vitarex">
+<meta property="og:title" content="Vitarex — премиальные фильтры для очистки воды">
+<meta property="og:description" content="Подбор, доставка и установка премиальных фильтров для очистки воды. Гарантия и сервис для дома и бизнеса в Узбекистане.">
+<meta property="og:image" content="https://vitarex.uz/assets/og-image.png"><!-- TODO: обновить домен -->
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://vitarex.uz/"><!-- TODO: обновить домен -->
+<meta property="og:locale" content="ru_RU">
+<meta property="og:locale:alternate" content="uz_UZ">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Vitarex — премиальные фильтры для очистки воды">
+<meta name="twitter:description" content="Подбор, доставка и установка премиальных фильтров для очистки воды в Узбекистане.">
+<meta name="twitter:image" content="https://vitarex.uz/assets/og-image.png"><!-- TODO: обновить домен -->
+
+<!-- Favicons -->
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/icon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/icon-180.png">
+<link rel="manifest" href="site.webmanifest">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="demo-banner" id="demoBanner">
+  <span data-i18n="demo_banner">Демо-версия сайта. Товары, цены и фото — примеры для наполнения. Свяжитесь с нами, чтобы обсудить финальный вариант.</span>
+  <button class="demo-banner__close" id="demoBannerClose" aria-label="Закрыть">&times;</button>
+</div>
+
+<header class="site-header" id="siteHeader">
+  <div class="container header-shell">
+    <div class="nav-pill">
+      <a href="#top" class="brand">
+        <span class="brand__logo" data-icon="dropFill"></span>
+        <span class="brand__name">VITAREX</span>
+      </a>
+
+      <nav class="nav" id="mainNav">
+        <a href="#about" data-i18n="nav_about">О нас</a>
+        <a href="#catalog" data-i18n="nav_catalog">Каталог</a>
+        <a href="#advantages" data-i18n="nav_advantages">Преимущества</a>
+        <a href="#steps" data-i18n="nav_steps">Как заказать</a>
+        <a href="#reviews" data-i18n="nav_reviews">Отзывы</a>
+        <a href="#faq" data-i18n="nav_faq">FAQ</a>
+        <a href="#contacts" data-i18n="nav_contacts">Контакты</a>
+      </nav>
+
+      <div class="header-actions">
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button type="button" class="lang-btn" data-lang="ru">RU</button>
+          <button type="button" class="lang-btn" data-lang="uz">UZ</button>
+        </div>
+        <a class="btn btn--primary btn--sm" id="headerCta" href="#contacts" data-i18n="header_cta">Заказать</a>
+        <button class="burger" id="burgerBtn" aria-label="Menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+    <nav class="nav-mobile" id="mainNavMobile">
+      <a href="#about" data-i18n="nav_about">О нас</a>
+      <a href="#catalog" data-i18n="nav_catalog">Каталог</a>
+      <a href="#advantages" data-i18n="nav_advantages">Преимущества</a>
+      <a href="#steps" data-i18n="nav_steps">Как заказать</a>
+      <a href="#reviews" data-i18n="nav_reviews">Отзывы</a>
+      <a href="#faq" data-i18n="nav_faq">FAQ</a>
+      <a href="#contacts" data-i18n="nav_contacts">Контакты</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="hero__bg" aria-hidden="true">
+      <div class="mesh mesh--1"></div>
+      <div class="mesh mesh--2"></div>
+      <div class="mesh mesh--3"></div>
+      <div class="grain"></div>
+    </div>
+    <div class="container hero__inner">
+      <div class="hero__text">
+        <span class="eyebrow"><i class="eyebrow__dot"></i><span data-i18n="hero_eyebrow">Premium suv tozalash filtri</span></span>
+        <h1 data-i18n-html="hero_title_html">Чистая вода в <em>каждом доме</em> — с фильтрами Vitarex</h1>
+        <p class="hero__sub" data-i18n="hero_sub">Многоступенчатая очистка, простая установка и забота о здоровье вашей семьи. Каталог фильтров под любые задачи — от кухни до целого дома.</p>
+        <div class="hero__cta">
+          <a href="#catalog" class="btn btn--primary" data-i18n="hero_cta_catalog">Смотреть каталог</a>
+          <a href="#contacts" class="btn btn--ghost" data-i18n="hero_cta_contact">Получить консультацию</a>
+        </div>
+        <div class="hero__stats">
+          <div class="stat">
+            <strong class="stat__value"><span data-count="3700">0</span><span class="stat__plus">+</span></strong>
+            <span data-i18n="stat_followers">подписчиков в Instagram</span>
+          </div>
+          <div class="stat">
+            <strong data-i18n="stat_steps_value">до 7 ступеней</strong>
+            <span data-i18n="stat_steps">очистки воды</span>
+          </div>
+          <div class="stat">
+            <strong data-i18n="stat_warranty_value">гарантия</strong>
+            <span data-i18n="stat_warranty">на фильтры и монтаж</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero__art" aria-hidden="true">
+        <div class="orb-scene">
+          <div class="orb-scene__ring orb-scene__ring--1"></div>
+          <div class="orb-scene__ring orb-scene__ring--2"></div>
+          <div class="orb-scene__core">
+            <span data-icon="dropFill"></span>
+          </div>
+          <div class="chip chip--1"><span data-icon="layers"></span><span data-i18n="hero_chip_steps">7 ступеней очистки</span></div>
+          <div class="chip chip--2"><span data-icon="shield"></span><span data-i18n="hero_chip_warranty">Гарантия на монтаж</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about" data-reveal>
+    <div class="container about__inner">
+      <div class="about__media" aria-hidden="true">
+        <div class="about__badge">
+          <span class="about__badge-icon" data-icon="dropFill"></span>
+          <span class="about__badge-text">VITAREX</span>
+        </div>
+        <div class="about__ring"></div>
+      </div>
+      <div class="about__text">
+        <span class="section-eyebrow" data-i18n="about_eyebrow">О компании</span>
+        <h2 data-i18n="about_title">Vitarex — гарантия здоровой и чистой воды</h2>
+        <p data-i18n="about_p1">Мы поставляем и устанавливаем премиальные системы очистки воды для дома, офиса и бизнеса. Наша миссия — чтобы в каждом доме была вода, которой можно доверять.</p>
+        <p data-i18n="about_p2">Работаем напрямую с клиентом: подбираем модель под состав воды и задачи, доставляем, устанавливаем и остаёмся на связи для обслуживания.</p>
+        <ul class="about__list">
+          <li><span data-icon="check"></span><span data-i18n="about_li1">Подбор фильтра под воду вашего района</span></li>
+          <li><span data-icon="check"></span><span data-i18n="about_li2">Установка мастером и настройка системы</span></li>
+          <li><span data-icon="check"></span><span data-i18n="about_li3">Сервисное обслуживание и замена картриджей</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="catalog" id="catalog">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <span class="section-eyebrow" data-i18n="catalog_eyebrow">Каталог</span>
+        <h2 data-i18n="catalog_title">Модели фильтров Vitarex</h2>
+        <p data-i18n="catalog_sub">Демо-линейка для примера. Пришлите реальные модели, характеристики и цены — заменим карточки на актуальные.</p>
+      </div>
+
+      <div class="catalog-grid" id="catalogGrid"></div>
+    </div>
+  </section>
+
+  <section class="advantages" id="advantages">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <span class="section-eyebrow" data-i18n="adv_eyebrow">Почему мы</span>
+        <h2 data-i18n="adv_title">Преимущества Vitarex</h2>
+      </div>
+      <div class="advantages-grid" id="advantagesGrid"></div>
+    </div>
+  </section>
+
+  <section class="steps" id="steps">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <span class="section-eyebrow" data-i18n="steps_eyebrow">Процесс</span>
+        <h2 data-i18n="steps_title">Как оформить заказ</h2>
+      </div>
+      <div class="steps-grid" id="stepsGrid"></div>
+    </div>
+  </section>
+
+  <section class="reviews" id="reviews">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <span class="section-eyebrow" data-i18n="reviews_eyebrow">Отзывы</span>
+        <h2 data-i18n="reviews_title">Что говорят наши клиенты</h2>
+        <p data-i18n="reviews_sub">Демо-отзывы для примера оформления блока — заменим на реальные отзывы клиентов.</p>
+      </div>
+      <div class="reviews-grid" id="reviewsGrid"></div>
+    </div>
+  </section>
+
+  <section class="faq" id="faq">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <span class="section-eyebrow" data-i18n="faq_eyebrow">Вопросы и ответы</span>
+        <h2 data-i18n="faq_title">Частые вопросы</h2>
+        <p data-i18n="faq_sub">Не нашли ответ — напишите нам в Telegram, ответим лично.</p>
+      </div>
+      <div class="faq-list" id="faqList"></div>
+    </div>
+  </section>
+
+  <section class="cta-band" id="contacts">
+    <div class="hero__bg" aria-hidden="true">
+      <div class="mesh mesh--1"></div>
+      <div class="mesh mesh--2"></div>
+      <div class="grain"></div>
+    </div>
+    <div class="container cta-band__inner" data-reveal>
+      <div class="cta-band__text">
+        <span class="section-eyebrow section-eyebrow--dark" data-i18n="contact_eyebrow">Контакты</span>
+        <h2 data-i18n="contact_title">Готовы подобрать фильтр для вашего дома?</h2>
+        <p data-i18n="contact_sub">Оставьте заявку или напишите нам напрямую — ответим и поможем с выбором модели.</p>
+        <div class="contact-links">
+          <a href="tel:+998995040004" class="contact-link">
+            <span class="contact-link__icon" data-icon="phone"></span> +998 99 504 00 04
+          </a>
+          <a href="https://t.me/Vitarex_admin" target="_blank" rel="noopener" class="contact-link">
+            <span class="contact-link__icon" data-icon="send"></span> @Vitarex_admin
+          </a>
+          <a href="https://www.instagram.com/vitarex_uz" target="_blank" rel="noopener" class="contact-link">
+            <span class="contact-link__icon" data-icon="camera"></span> @vitarex_uz
+          </a>
+        </div>
+      </div>
+
+      <form class="order-form" id="orderForm">
+        <h3 data-i18n="form_title">Быстрая заявка</h3>
+        <label>
+          <span data-i18n="form_name">Ваше имя</span>
+          <input type="text" name="name" required placeholder="Имя" data-i18n-placeholder="form_name_ph">
+        </label>
+        <label>
+          <span data-i18n="form_phone">Телефон</span>
+          <input type="tel" name="phone" required placeholder="+998 __ ___ __ __">
+        </label>
+        <label>
+          <span data-i18n="form_model">Интересующая модель</span>
+          <select name="model" id="formModelSelect"></select>
+        </label>
+        <button type="submit" class="btn btn--primary btn--block" data-i18n="form_submit">Отправить в Telegram</button>
+        <p class="order-form__hint" data-i18n="form_hint">Кнопка откроет Telegram с готовым сообщением для @Vitarex_admin.</p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="#top" class="brand">
+        <span class="brand__logo" data-icon="dropFill"></span>
+        <span class="brand__name">VITAREX</span>
+      </a>
+      <p data-i18n="footer_tag">Premium suv tozalash filtri — sog'lom va toza suv kafolati.</p>
+    </div>
+    <nav class="footer-nav">
+      <a href="#about" data-i18n="nav_about">О нас</a>
+      <a href="#catalog" data-i18n="nav_catalog">Каталог</a>
+      <a href="#advantages" data-i18n="nav_advantages">Преимущества</a>
+      <a href="#faq" data-i18n="nav_faq">FAQ</a>
+      <a href="#contacts" data-i18n="nav_contacts">Контакты</a>
+    </nav>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/vitarex_uz" target="_blank" rel="noopener"><span data-icon="camera"></span> Instagram</a>
+      <a href="https://t.me/Vitarex_suv_filtr" target="_blank" rel="noopener"><span data-icon="send"></span> Telegram</a>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>&copy; <span id="year"></span> Vitarex. <span data-i18n="footer_rights">Все права защищены.</span></span>
+    <span data-i18n="footer_demo">Демо-сайт, созданный для наполнения реальными данными.</span>
+  </div>
+</footer>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
