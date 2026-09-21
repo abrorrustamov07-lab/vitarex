@@ -376,18 +376,16 @@ section { padding: 100px 0; }
 }
 .float-contact__btn span { width: 26px; height: 26px; }
 .float-contact__btn:hover { transform: scale(1.08); }
-.float-contact__btn--whatsapp { background: #25d366; }
 .float-contact__btn--telegram { background: #29a9eb; }
 .float-contact__btn::before {
   content: ""; position: absolute; inset: 0; border-radius: 50%;
-  box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.55);
+  box-shadow: 0 0 0 0 rgba(41, 169, 235, 0.55);
   animation: pulse-ring 2.6s ease-out infinite;
 }
-.float-contact__btn--telegram::before { box-shadow: 0 0 0 0 rgba(41, 169, 235, 0.55); animation-delay: 1.3s; }
 @keyframes pulse-ring {
-  0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.45); }
-  70% { box-shadow: 0 0 0 14px rgba(37, 211, 102, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+  0% { box-shadow: 0 0 0 0 rgba(41, 169, 235, 0.45); }
+  70% { box-shadow: 0 0 0 14px rgba(41, 169, 235, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(41, 169, 235, 0); }
 }
 @media (max-width: 760px) {
   .float-contact { right: 14px; bottom: 14px; gap: 10px; }
