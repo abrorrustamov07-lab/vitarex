@@ -21,6 +21,7 @@
     check: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg>`,
     quote: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M9.5 6c-3 1.3-4.8 3.7-4.8 6.9 0 2.6 1.7 4.4 3.9 4.4 1.9 0 3.3-1.4 3.3-3.2 0-1.7-1.2-3-2.8-3.1.3-1.8 1.7-3.3 3.4-4.1L9.5 6Zm9 0c-3 1.3-4.8 3.7-4.8 6.9 0 2.6 1.7 4.4 3.9 4.4 1.9 0 3.3-1.4 3.3-3.2 0-1.7-1.2-3-2.8-3.1.3-1.8 1.7-3.3 3.4-4.1L18.5 6Z"/></svg>`,
     chevron: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7 10 5 5 5-5"/></svg>`,
+    whatsapp: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 17.5 4 20l2.6-2.4A8 8 0 1 1 9.5 19.2L6.5 17.5Z"/><path d="M9 10c0 3 2 5 5 5 .5 0 1-.7 1-1.3s-1.3-1.4-1.7-1.4-.5.5-.8.5c-.5 0-2-1-2-2.5 0-.3.5-.3.5-.8s-.8-1.7-1.4-1.7S9 8.5 9 10Z" fill="currentColor" stroke="none"/></svg>`,
   };
 
   function icon(key) {
@@ -127,6 +128,55 @@
       .join("");
   }
 
+  function renderCompare(lang) {
+    const table = document.getElementById("compareTable");
+    const dict = TRANSLATIONS[lang];
+    const items = CATALOG[lang];
+    const rows = [
+      { key: "steps", label: dict.compare_row_steps },
+      { key: "resource", label: dict.compare_row_resource },
+      { key: "performance", label: dict.compare_row_performance },
+      { key: "bestFor", label: dict.compare_row_bestfor },
+    ];
+
+    const head = `
+      <thead>
+        <tr>
+          <th class="compare-table__corner"></th>
+          ${items.map((item) => `<th>${item.name}</th>`).join("")}
+        </tr>
+      </thead>`;
+
+    const bodyRows = rows
+      .map(
+        (row) => `
+        <tr>
+          <th scope="row">${row.label}</th>
+          ${items.map((item) => `<td>${item[row.key]}</td>`).join("")}
+        </tr>`
+      )
+      .join("");
+
+    const priceRow = `
+      <tr class="compare-table__price-row">
+        <th scope="row">${dict.compare_row_price}</th>
+        ${items.map((item) => `<td>${item.price} <small>${dict.price_currency}</small></td>`).join("")}
+      </tr>`;
+
+    const ctaRow = `
+      <tr>
+        <th scope="row"></th>
+        ${items
+          .map(
+            (item) =>
+              `<td><a class="btn-circle" href="${buildTelegramLink(item.name, lang)}" target="_blank" rel="noopener" aria-label="${dict.order_btn}">${icon("arrow")}</a></td>`
+          )
+          .join("")}
+      </tr>`;
+
+    table.innerHTML = `${head}<tbody>${bodyRows}${priceRow}${ctaRow}</tbody>`;
+  }
+
   function renderFaq(lang) {
     const list = document.getElementById("faqList");
     list.innerHTML = FAQ[lang]
@@ -186,6 +236,7 @@
     safeStorage("set", lang);
     applyTranslations(lang);
     renderCatalog(lang);
+    renderCompare(lang);
     renderAdvantages(lang);
     renderSteps(lang);
     renderReviews(lang);
