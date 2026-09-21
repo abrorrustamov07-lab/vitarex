@@ -30,6 +30,16 @@ const TRANSLATIONS = {
     about_li1: "Подбор фильтра под воду вашего района",
     about_li2: "Установка мастером и настройка системы",
     about_li3: "Сервисное обслуживание и замена картриджей",
+    quiz_eyebrow: "Тест за 30 секунд",
+    quiz_title: "Не знаете, какую модель выбрать?",
+    quiz_sub: "Ответьте на 3 вопроса — подскажем подходящую модель Vitarex.",
+    quiz_step: "Вопрос {c} из {t}",
+    quiz_back: "Назад",
+    quiz_result_badge: "Рекомендуем вам",
+    quiz_result_hint: "Рекомендация основана на ваших ответах и не заменяет консультацию мастера.",
+    quiz_restart: "Пройти заново",
+    quiz_view_catalog: "Смотреть весь каталог",
+    quiz_order: "Заказать эту модель",
     catalog_eyebrow: "Каталог",
     catalog_title: "Модели фильтров Vitarex",
     catalog_sub: "Демо-линейка для примера. Пришлите реальные модели, характеристики и цены — заменим карточки на актуальные.",
@@ -98,6 +108,16 @@ const TRANSLATIONS = {
     about_li1: "Hududingiz suviga mos filtr tanlash",
     about_li2: "Usta tomonidan o'rnatish va sozlash",
     about_li3: "Servis xizmati va kartrijlarni almashtirish",
+    quiz_eyebrow: "30 soniyalik test",
+    quiz_title: "Qaysi modelni tanlashni bilmayapsizmi?",
+    quiz_sub: "3 ta savolga javob bering — mos Vitarex modelini taklif qilamiz.",
+    quiz_step: "Savol {c} / {t}",
+    quiz_back: "Orqaga",
+    quiz_result_badge: "Sizga tavsiya etamiz",
+    quiz_result_hint: "Tavsiya javoblaringizga asoslangan va usta konsultatsiyasini almashtirmaydi.",
+    quiz_restart: "Qayta boshlash",
+    quiz_view_catalog: "Butun katalogni ko'rish",
+    quiz_order: "Shu modelni buyurtma qilish",
     catalog_eyebrow: "Katalog",
     catalog_title: "Vitarex filtr modellari",
     catalog_sub: "Namuna uchun demo qator. Haqiqiy modellar, xususiyatlar va narxlarni yuboring — kartochkalarni yangilaymiz.",
@@ -317,5 +337,60 @@ const FAQ = {
     { q: "Kafolat berasizmi?", a: "Ha, uskuna va montaj ishlariga rasmiy kafolat beriladi. Aniq shartlari tanlangan modelga qarab farq qiladi — ariza berishda aniqlashtiramiz." },
     { q: "To'lov qanday amalga oshiriladi?", a: "Naqd va naqdsiz to'lovni, shuningdek mashhur to'lov ilovalari orqali o'tkazmalarni qabul qilamiz. To'lov usulini Telegramda menejer bilan kelishishingiz mumkin." },
     { q: "O'rnatishdan keyin filtrga xizmat ko'rsatasizmi?", a: "Ha, xarid qilgandan keyin ham mijoz bilan aloqada bo'lamiz: kartrijlarni almashtirish vaqtini eslatamiz va zarur bo'lsa servis uchun boramiz." },
+  ],
+};
+
+const QUIZ = {
+  ru: [
+    {
+      question: "Где будете использовать фильтр?",
+      options: [
+        { text: "Кухня, под мойку", scores: { "Vitarex Compact": 3, "Vitarex Standard": 1 } },
+        { text: "Вся квартира или дом", scores: { "Vitarex Standard": 3, "Vitarex Pro RO": 1 } },
+        { text: "Кафе, офис, бизнес", scores: { "Vitarex Ultra": 3 } },
+      ],
+    },
+    {
+      question: "Какая у вас вода из-под крана?",
+      options: [
+        { text: "Обычная, нареканий нет", scores: { "Vitarex Standard": 2, "Vitarex Compact": 1 } },
+        { text: "Жёсткая / есть накипь на чайнике", scores: { "Vitarex Pro RO": 3, "Vitarex Ultra": 1 } },
+        { text: "Не знаю, хочу максимум надёжности", scores: { "Vitarex Pro RO": 2, "Vitarex Standard": 1 } },
+      ],
+    },
+    {
+      question: "Что для вас важнее?",
+      options: [
+        { text: "Цена и компактность", scores: { "Vitarex Compact": 2 } },
+        { text: "Глубина очистки", scores: { "Vitarex Pro RO": 2, "Vitarex Ultra": 1 } },
+        { text: "Объём и скорость (много воды в день)", scores: { "Vitarex Ultra": 2, "Vitarex Standard": 1 } },
+      ],
+    },
+  ],
+  uz: [
+    {
+      question: "Filtrni qayerda ishlatasiz?",
+      options: [
+        { text: "Oshxona, rakovina ostida", scores: { "Vitarex Compact": 3, "Vitarex Standard": 1 } },
+        { text: "Butun kvartira yoki uy", scores: { "Vitarex Standard": 3, "Vitarex Pro RO": 1 } },
+        { text: "Kafe, ofis, biznes", scores: { "Vitarex Ultra": 3 } },
+      ],
+    },
+    {
+      question: "Jo'mrakdagi suvingiz qanday?",
+      options: [
+        { text: "Oddiy, shikoyat yo'q", scores: { "Vitarex Standard": 2, "Vitarex Compact": 1 } },
+        { text: "Qattiq / choynakda oqlanish bor", scores: { "Vitarex Pro RO": 3, "Vitarex Ultra": 1 } },
+        { text: "Bilmayman, maksimal ishonchlilik kerak", scores: { "Vitarex Pro RO": 2, "Vitarex Standard": 1 } },
+      ],
+    },
+    {
+      question: "Siz uchun nima muhimroq?",
+      options: [
+        { text: "Narx va ixchamlik", scores: { "Vitarex Compact": 2 } },
+        { text: "Tozalash chuqurligi", scores: { "Vitarex Pro RO": 2, "Vitarex Ultra": 1 } },
+        { text: "Hajm va tezlik (kuniga ko'p suv)", scores: { "Vitarex Ultra": 2, "Vitarex Standard": 1 } },
+      ],
+    },
   ],
 };

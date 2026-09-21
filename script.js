@@ -128,6 +128,123 @@
       .join("");
   }
 
+  const quizState = { current: 0, answers: [] };
+
+  function renderQuizProgress(total, lang) {
+    const dict = TRANSLATIONS[lang];
+    const dots = Array.from({ length: total })
+      .map((_, i) => {
+        let cls = "quiz-progress__dot";
+        if (i === quizState.current) cls += " is-active";
+        else if (i < quizState.current) cls += " is-done";
+        return `<span class="${cls}"></span>`;
+      })
+      .join("");
+    const stepLabel = dict.quiz_step.replace("{c}", quizState.current + 1).replace("{t}", total);
+    return `<div class="quiz-progress">${dots}</div><p class="quiz-step-label">${stepLabel}</p>`;
+  }
+
+  function renderQuizQuestion(lang) {
+    const body = document.getElementById("quizBody");
+    const dict = TRANSLATIONS[lang];
+    const questions = QUIZ[lang];
+    const q = questions[quizState.current];
+
+    const optionsHtml = q.options
+      .map(
+        (opt, i) => `
+        <button type="button" class="quiz-option" data-opt="${i}">
+          <span class="quiz-option__marker"></span>
+          <span>${opt.text}</span>
+        </button>`
+      )
+      .join("");
+
+    body.innerHTML = `
+      ${renderQuizProgress(questions.length, lang)}
+      <div class="quiz-question">
+        <h3>${q.question}</h3>
+        <div class="quiz-options">${optionsHtml}</div>
+      </div>
+      ${quizState.current > 0 ? `<button type="button" class="quiz-back" id="quizBack">${icon("arrow")}<span>${dict.quiz_back}</span></button>` : ""}
+    `;
+
+    body.querySelectorAll(".quiz-option").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        quizState.answers[quizState.current] = Number(btn.dataset.opt);
+        if (quizState.current < questions.length - 1) {
+          quizState.current += 1;
+          renderQuizQuestion(lang);
+        } else {
+          renderQuizResult(lang);
+        }
+      });
+    });
+
+    const backBtn = document.getElementById("quizBack");
+    if (backBtn) {
+      backBtn.addEventListener("click", () => {
+        quizState.current = Math.max(0, quizState.current - 1);
+        renderQuizQuestion(lang);
+      });
+    }
+  }
+
+  function renderQuizResult(lang) {
+    const body = document.getElementById("quizBody");
+    const dict = TRANSLATIONS[lang];
+    const questions = QUIZ[lang];
+    const items = CATALOG[lang];
+
+    const scores = {};
+    questions.forEach((q, i) => {
+      const answerIndex = quizState.answers[i];
+      if (answerIndex === undefined) return;
+      const opt = q.options[answerIndex];
+      Object.entries(opt.scores).forEach(([name, pts]) => {
+        scores[name] = (scores[name] || 0) + pts;
+      });
+    });
+
+    let winner = items[0];
+    let bestScore = -1;
+    items.forEach((item) => {
+      const s = scores[item.name] || 0;
+      if (s > bestScore) {
+        bestScore = s;
+        winner = item;
+      }
+    });
+
+    body.innerHTML = `
+      <div class="quiz-result">
+        <div class="quiz-result__media">${icon(winner.icon)}</div>
+        <span class="quiz-result__badge">${dict.quiz_result_badge}</span>
+        <h3>${winner.name}</h3>
+        <p class="quiz-result__desc">${winner.desc}</p>
+        <div class="quiz-result__price">${winner.price} <small>${dict.price_currency}</small></div>
+        <div class="quiz-result__actions">
+          <a class="btn btn--primary" href="${buildTelegramLink(winner.name, lang)}" target="_blank" rel="noopener">${dict.quiz_order}</a>
+          <a class="btn btn--ghost-light" href="#catalog">${dict.quiz_view_catalog}</a>
+          <button type="button" class="quiz-restart" id="quizRestart">${dict.quiz_restart}</button>
+        </div>
+        <p class="quiz-result__hint">${dict.quiz_result_hint}</p>
+      </div>
+    `;
+
+    document.getElementById("quizRestart").addEventListener("click", () => {
+      quizState.current = 0;
+      quizState.answers = [];
+      renderQuizQuestion(lang);
+    });
+  }
+
+  function renderQuiz(lang) {
+    quizState.current = 0;
+    quizState.answers = [];
+    renderQuizQuestion(lang);
+  }
+
   function renderCompare(lang) {
     const table = document.getElementById("compareTable");
     const dict = TRANSLATIONS[lang];
@@ -235,6 +352,7 @@
     currentLang = lang;
     safeStorage("set", lang);
     applyTranslations(lang);
+    renderQuiz(lang);
     renderCatalog(lang);
     renderCompare(lang);
     renderAdvantages(lang);
