@@ -593,7 +593,7 @@ section { padding: 100px 0; }
   .product-card, .product-card--featured { grid-column: span 2; }
 }
 @media (max-width: 760px) {
-  .nav, .header-actions .lang-switch, .header-actions #headerCta { display: none; }
+  .nav, .header-actions #headerCta { display: none; }
   .header-actions { margin-left: auto; }
   .burger { display: flex; }
   .site-header.nav-open .nav-mobile {
