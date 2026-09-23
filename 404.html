@@ -28,6 +28,7 @@
   .error-page__title { color: #fff; font-size: 22px; margin-bottom: 10px; }
   .error-page__text { color: rgba(255,255,255,0.6); font-size: 14.5px; margin-bottom: 32px; }
   .error-page__text small { display: block; margin-top: 4px; color: rgba(255,255,255,0.4); }
+  .error-page__lang { position: absolute; top: 24px; right: 24px; z-index: 2; }
 </style>
 </head>
 <body>
@@ -38,20 +39,56 @@
     <div class="mesh mesh--2"></div>
     <div class="grain"></div>
   </div>
+
+  <div class="lang-switch error-page__lang" role="group" aria-label="Language">
+    <button type="button" class="lang-btn" data-lang="ru">RU</button>
+    <button type="button" class="lang-btn" data-lang="uz">UZ</button>
+  </div>
+
   <div class="error-page__content">
     <a href="/" class="error-page__brand">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.8c-4.2 5.1-7.2 8.9-7.2 12.7a7.2 7.2 0 0 0 14.4 0c0-3.8-3-7.6-7.2-12.7Z"/></svg>
       VITAREX
     </a>
     <div class="error-page__code">404</div>
-    <h1 class="error-page__title">Страница не найдена</h1>
-    <p class="error-page__text">
-      Такой страницы не существует или она была перемещена.
-      <small>Bunday sahifa mavjud emas yoki ko'chirilgan.</small>
-    </p>
-    <a href="/" class="btn btn--primary">На главную</a>
+    <h1 class="error-page__title" data-t="title">Страница не найдена</h1>
+    <p class="error-page__text" data-t="text">Такой страницы не существует или она была перемещена.</p>
+    <a href="/" class="btn btn--primary" data-t="btn">На главную</a>
   </div>
 </div>
 
+<script>
+  (function () {
+    var DICT = {
+      ru: { title: "Страница не найдена", text: "Такой страницы не существует или она была перемещена.", btn: "На главную" },
+      uz: { title: "Sahifa topilmadi", text: "Bunday sahifa mavjud emas yoki ko'chirilgan.", btn: "Bosh sahifaga" },
+    };
+
+    function safeGet() {
+      try { return localStorage.getItem("vitarex_lang"); } catch (e) { return null; }
+    }
+    function safeSet(v) {
+      try { localStorage.setItem("vitarex_lang", v); } catch (e) {}
+    }
+
+    function setLang(lang) {
+      var dict = DICT[lang];
+      document.querySelectorAll("[data-t]").forEach(function (el) {
+        el.textContent = dict[el.getAttribute("data-t")];
+      });
+      document.querySelectorAll(".lang-btn").forEach(function (btn) {
+        btn.classList.toggle("active", btn.dataset.lang === lang);
+      });
+      document.documentElement.lang = lang;
+      safeSet(lang);
+    }
+
+    document.querySelectorAll(".lang-btn").forEach(function (btn) {
+      btn.addEventListener("click", function () { setLang(btn.dataset.lang); });
+    });
+
+    setLang(safeGet() === "uz" ? "uz" : "ru");
+  })();
+</script>
 </body>
 </html>
