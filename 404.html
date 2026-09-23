@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Страница не найдена — Vitarex</title>
+<meta name="robots" content="noindex, follow">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  body { background: var(--navy-950); }
+  .error-page {
+    min-height: 100vh; position: relative; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+    padding: 24px; text-align: center;
+  }
+  .error-page__content { position: relative; z-index: 1; max-width: 480px; }
+  .error-page__brand { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; font-size: 17px; color: #fff; font-family: 'Space Grotesk', sans-serif; margin-bottom: 42px; }
+  .error-page__brand svg { width: 20px; height: 20px; color: var(--cyan-400); }
+  .error-page__code {
+    font-family: 'Space Grotesk', sans-serif; font-size: 96px; font-weight: 700; line-height: 1;
+    background: var(--gradient-brand); -webkit-background-clip: text; background-clip: text; color: transparent;
+    margin-bottom: 10px;
+  }
+  .error-page__title { color: #fff; font-size: 22px; margin-bottom: 10px; }
+  .error-page__text { color: rgba(255,255,255,0.6); font-size: 14.5px; margin-bottom: 32px; }
+  .error-page__text small { display: block; margin-top: 4px; color: rgba(255,255,255,0.4); }
+</style>
+</head>
+<body>
+
+<div class="error-page">
+  <div class="hero__bg" aria-hidden="true">
+    <div class="mesh mesh--1"></div>
+    <div class="mesh mesh--2"></div>
+    <div class="grain"></div>
+  </div>
+  <div class="error-page__content">
+    <a href="/" class="error-page__brand">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.8c-4.2 5.1-7.2 8.9-7.2 12.7a7.2 7.2 0 0 0 14.4 0c0-3.8-3-7.6-7.2-12.7Z"/></svg>
+      VITAREX
+    </a>
+    <div class="error-page__code">404</div>
+    <h1 class="error-page__title">Страница не найдена</h1>
+    <p class="error-page__text">
+      Такой страницы не существует или она была перемещена.
+      <small>Bunday sahifa mavjud emas yoki ko'chirilgan.</small>
+    </p>
+    <a href="/" class="btn btn--primary">На главную</a>
+  </div>
+</div>
+
+</body>
+</html>
