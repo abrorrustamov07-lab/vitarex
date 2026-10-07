@@ -57,29 +57,54 @@
     grid.innerHTML = CATALOG[lang]
       .map(
         (item) => `
-        <article class="product-card${item.featured ? " product-card--featured" : ""}" data-reveal>
-          <div class="product-card__media">
-            <span class="product-card__badge">${item.badge}</span>
-            <span class="product-card__icon">${icon(item.icon)}</span>
+        <article class="product-feature" data-reveal>
+          <div class="product-feature__media">
+            <span class="product-feature__badge">${item.badge}</span>
+            <span class="product-feature__icon">${icon(item.icon)}</span>
           </div>
-          <div class="product-card__body">
+          <div class="product-feature__body">
             <h3>${item.name}</h3>
-            <p class="product-card__desc">${item.desc}</p>
-            <div class="product-card__specs">
+            <p class="product-feature__tagline">${item.tagline}</p>
+            <p class="product-feature__desc">${item.desc}</p>
+
+            <div class="product-feature__specs">
               ${item.specs.map((s) => `<span class="spec-chip">${s}</span>`).join("")}
             </div>
-            <div class="product-card__footer">
-              <div class="product-card__price">
-                ${item.price} <small>${dict.price_currency}</small>
+
+            <h4 class="product-feature__subhead">${dict.catalog_stages_title}</h4>
+            <div class="product-feature__stages">
+              ${item.stages
+                .map(
+                  (s) => `
+                <div class="product-feature__stage">
+                  <span class="product-feature__stage-num">${icon("dropFill")}</span>
+                  <div>
+                    <div class="product-feature__stage-title">${s.title}</div>
+                    <p class="product-feature__stage-text">${s.text}</p>
+                  </div>
+                </div>`
+                )
+                .join("")}
+            </div>
+
+            <h4 class="product-feature__subhead">${dict.catalog_advantages_title}</h4>
+            <ul class="product-feature__advantages">
+              ${item.advantages.map((a) => `<li><span data-icon="check"></span><span>${a}</span></li>`).join("")}
+            </ul>
+
+            <div class="product-feature__footer">
+              <div class="product-feature__price">
+                ${item.priceOnRequest ? item.price : `${item.price} <small>${dict.price_currency}</small>`}
               </div>
-              <a class="btn-circle" href="${buildTelegramLink(item.name, lang)}" target="_blank" rel="noopener" aria-label="${dict.order_btn}">
-                ${icon("arrow")}
+              <a class="btn btn--primary" href="${buildTelegramLink(item.name, lang)}" target="_blank" rel="noopener">
+                ${dict.order_btn}
               </a>
             </div>
           </div>
         </article>`
       )
       .join("");
+    renderStaticIcons();
   }
 
   function renderAdvantages(lang) {
@@ -169,8 +194,8 @@
   function buildTelegramLink(modelName, lang) {
     const text =
       lang === "uz"
-        ? `Salom! Vitarex — ${modelName} modeli bilan qiziqyapman.`
-        : `Здравствуйте! Интересует модель Vitarex — ${modelName}.`;
+        ? `Salom! ${modelName} filtri bilan qiziqyapman.`
+        : `Здравствуйте! Интересует фильтр ${modelName}.`;
     return `https://t.me/Vitarex_admin?text=${encodeURIComponent(text)}`;
   }
 
